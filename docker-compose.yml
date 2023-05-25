@@ -25,6 +25,6 @@ services:
     depends_on: 
       - database_social
 
-volumes: 
+volumes:
   pgdata:
     driver: local

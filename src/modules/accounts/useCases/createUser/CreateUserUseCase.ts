@@ -16,19 +16,17 @@ class CreateUserUseCase {
     private rolesRepository: IRolesRepository,
   ) {}
 
-  async execute({ name, username, email, roles, password }): Promise<User> {
+  async execute({ name, email, roles, password }): Promise<User> {
     const userAlreadyExists = await this.usersRepository.findByEmail(email);
+
     if (userAlreadyExists) {
       throw new AppError("User already Exists");
     }
 
     const existsRole = await this.rolesRepository.findByIds(roles);
-
     const passwordHash = await hash(password, 8);
-
     const userCreated = await this.usersRepository.create({
       name,
-      username,
       email,
       roles: existsRole,
       password: passwordHash,

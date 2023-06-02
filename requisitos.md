@@ -36,52 +36,52 @@ Número de curtidas: O número de curtidas que o comentário recebeu.
 
 **Registro de usuário:**
 
-Os usuários devem fornecer informações válidas durante o processo de registro.
-O nome de usuário deve ser único para cada usuário.
-A senha deve atender a critérios mínimos de segurança, como comprimento mínimo e uso de caracteres especiais.
+[x] Os usuários devem fornecer informações válidas durante o processo de registro.
+[x] O email deve ser único para cada usuário.
+[x] A senha deve atender a critérios mínimos de segurança.
 
 **Autenticação e autorização:**
 
-Apenas usuários autenticados devem ter permissão para criar postagens e fazer comentários.
-Cada usuário deve ter apenas acesso às suas próprias postagens e comentários, a menos que sejam compartilhados publicamente.
+[ ] Apenas usuários autenticados devem ter permissão para criar postagens e fazer comentários.
+[ ] Cada usuário deve ter apenas acesso às suas próprias postagens e comentários, a menos que sejam compartilhados publicamente.
 
 **Postagens:**
 
-Os usuários devem ter a capacidade de criar, editar e excluir suas próprias postagens.
-As postagens podem ter restrições de privacidade, permitindo que sejam visíveis apenas para o próprio usuário, para amigos ou para o público em geral.
+[ ] Os usuários devem ter a capacidade de criar, editar e excluir suas próprias postagens.
+[ ] As postagens podem ter restrições de privacidade, permitindo que sejam visíveis apenas para o próprio usuário, para amigos ou para o público em geral.
 
 **Comentários:**
 
-Os usuários devem ter a capacidade de adicionar comentários às postagens de outros usuários.
-Os usuários devem poder editar ou excluir seus próprios comentários.
+[ ] Os usuários devem ter a capacidade de adicionar comentários às postagens de outros usuários.
+[ ] Os usuários devem poder editar ou excluir seus próprios comentários.
 
 **Curtidas:**
 
-Os usuários podem curtir postagens e comentários.
-Cada usuário deve ter a capacidade de curtir apenas uma vez cada postagem ou comentário.
-Privacidade e compartilhamento:
+[ ] Os usuários podem curtir postagens e comentários.
+[ ] Cada usuário deve ter a capacidade de curtir apenas uma vez cada postagem ou comentário.
+[ ] Privacidade e compartilhamento:
 
-Os usuários podem definir as configurações de privacidade para suas postagens, escolhendo quem pode vê-las.
-Os usuários podem compartilhar postagens de outros usuários em sua própria linha do tempo.
+[ ] Os usuários podem definir as configurações de privacidade para suas postagens, escolhendo quem pode vê-las.
+[ ] Os usuários podem compartilhar postagens de outros usuários em sua própria linha do tempo.
 Notificações:
 
-Os usuários podem receber notificações sobre atividades relevantes, como comentários em suas postagens ou menções em comentários.
+[ ] Os usuários podem receber notificações sobre atividades relevantes, como comentários em suas postagens ou menções em comentários.
 
 **Requisitos funcionais:**
 
-- Registro de usuários: Permitir que os usuários se registrem fornecendo informações básicas, como nome de usuário, senha e e-mail.
-- Autenticação e autorização: Garantir que apenas usuários autenticados tenham permissão para criar postagens e fazer comentários.
-- Criação de postagens: Permitir que os usuários criem postagens com texto, imagens ou vídeos.
-- Edição e exclusão de postagens: Permitir que os usuários editem ou excluam suas próprias postagens.
-- Criação de comentários: Permitir que os usuários adicionem comentários às postagens de outros usuários.
-- Edição e exclusão de comentários: Permitir que os usuários editem ou excluam seus próprios comentários.
-- Curtidas: Permitir que os usuários curtam postagens e comentários.
-- Privacidade e compartilhamento: Permitir que os usuários definam as configurações de privacidade de suas postagens e compartilhem postagens de outros usuários.
-- Notificações: Enviar notificações aos usuários sobre atividades relevantes, como comentários em suas postagens.
+[ ] Registro de usuários: Permitir que os usuários se registrem fornecendo informações básicas, como nome de usuário, senha e e-mail.
+[ ] Autenticação e autorização: Garantir que apenas usuários autenticados tenham permissão para criar postagens e fazer comentários.
+[ ] Criação de postagens: Permitir que os usuários criem postagens com texto, imagens ou vídeos.
+[ ] Edição e exclusão de postagens: Permitir que os usuários editem ou excluam suas próprias postagens.
+[ ] Criação de comentários: Permitir que os usuários adicionem comentários às postagens de outros usuários.
+[ ] Edição e exclusão de comentários: Permitir que os usuários editem ou excluam seus próprios comentários.
+[ ] Curtidas: Permitir que os usuários curtam postagens e comentários.
+[ ] Privacidade e compartilhamento: Permitir que os usuários definam as configurações de privacidade de suas postagens e compartilhem postagens de outros usuários.
+[ ] Notificações: Enviar notificações aos usuários sobre atividades relevantes, como comentários em suas postagens.
 
 **Requisitos não funcionais**:
 
-- Segurança: Proteger as informações dos usuários por meio de medidas de segurança, como criptografia de senhas e proteção contra ataques de injeção de código.
-- Desempenho: Garantir que o sistema seja responsivo e possa lidar com um número razoável de usuários e atividades simultâneas.
+[ ] Segurança: Proteger as informações dos usuários por meio de medidas de segurança, como criptografia de senhas e proteção contra ataques de injeção de código.
+[ ] Desempenho: Garantir que o sistema seja responsivo e possa lidar com um número razoável de usuários e atividades simultâneas.
 - Escalabilidade: Projetar o sistema de forma a permitir o crescimento futuro e o aumento na quantidade de usuários e dados.
-- Usabilidade: Criar uma interface intuitiva e amigável para que os usuários possam navegar facilmente, criar postagens e interagir com outras postagens e comentários.
+[ ] Usabilidade: Criar uma interface intuitiva e amigável para que os usuários possam navegar facilmente, criar postagens e interagir com outras postagens e comentários.

@@ -1,4 +1,4 @@
-import Permission from "../../infra/typeorm/entities/Permission";
+import {  Permission } from "../../infra/typeorm/entities/Permission";
 import { IPermissionsRepository } from "../IPermissionsRepository";
 
 class PermissionsRepositoryInMemory implements IPermissionsRepository {

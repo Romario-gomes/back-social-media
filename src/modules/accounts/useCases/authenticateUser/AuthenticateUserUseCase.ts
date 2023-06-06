@@ -2,8 +2,8 @@ import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
 
-import Permission from "@modules/accounts/infra/typeorm/entities/Permission";
-import Role from "@modules/accounts/infra/typeorm/entities/Role";
+import {  Permission } from "@modules/accounts/infra/typeorm/entities/Permission";
+import {  Role } from "@modules/accounts/infra/typeorm/entities/Role";
 
 import auth from "../../../../config/auth";
 import { IDateProvider } from "../../../../shared/container/providers/DateProvider/IDateProvider";

@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
 import { AppError } from "../../../../shared/errors/AppError";
-import Role from "../../infra/typeorm/entities/Role";
+import {  Role } from "../../infra/typeorm/entities/Role";
 import { IPermissionsRepository } from "../../repositories/IPermissionsRepository";
 import { IRolesRepository } from "../../repositories/IRolesRepository";
 

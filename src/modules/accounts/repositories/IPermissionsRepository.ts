@@ -1,4 +1,4 @@
-import Permission from "../infra/typeorm/entities/Permission";
+import {  Permission } from "../infra/typeorm/entities/Permission";
 
 interface IPermissionsRepository {
   create({ name, description }: ICreatePermissionDTO): Promise<Permission>;

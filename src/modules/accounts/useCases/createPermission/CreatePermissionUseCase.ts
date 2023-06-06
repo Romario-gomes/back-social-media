@@ -1,7 +1,7 @@
 import { injectable, inject } from "tsyringe";
 
 import { AppError } from "../../../../shared/errors/AppError";
-import Permission from "../../infra/typeorm/entities/Permission";
+import {  Permission } from "../../infra/typeorm/entities/Permission";
 import { IPermissionsRepository } from "../../repositories/IPermissionsRepository";
 
 @injectable()

@@ -8,7 +8,7 @@ import {
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
-import Permission from "./Permission";
+import { Permission } from "./Permission";
 
 @Entity("roles")
 class Role {
@@ -39,4 +39,4 @@ class Role {
   }
 }
 
-export default Role;
+export { Role };

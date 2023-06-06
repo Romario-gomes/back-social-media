@@ -2,7 +2,7 @@ import { Repository, getRepository } from "typeorm";
 
 import { ICreateRoleDTO } from "../../../dtos/ICreateRoleDTO";
 import { IRolesRepository } from "../../../repositories/IRolesRepository";
-import Role from "../entities/Role";
+import {  Role } from "../entities/Role";
 
 class RolesRepository implements IRolesRepository {
   private repository: Repository<Role>;

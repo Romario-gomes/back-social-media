@@ -1,7 +1,7 @@
 import { Repository, getRepository } from "typeorm";
 
 import { IPermissionsRepository } from "../../../repositories/IPermissionsRepository";
-import Permission from "../entities/Permission";
+import {  Permission } from "../entities/Permission";
 
 class PermissionsRepository implements IPermissionsRepository {
   private repository: Repository<Permission>;

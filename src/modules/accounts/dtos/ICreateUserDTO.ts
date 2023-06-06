@@ -1,4 +1,4 @@
-import Role from "../infra/typeorm/entities/Role";
+import { Role } from "../infra/typeorm/entities/Role";
 
 interface ICreateUserDTO {
   name: string;

@@ -46,8 +46,9 @@ Número de curtidas: O número de curtidas que o comentário recebeu.
 [ ] Cada usuário deve ter apenas acesso às suas próprias postagens e comentários, a menos que sejam compartilhados publicamente.
 
 **Postagens:**
-[ ] Os usuários devem ter a capacidade de criar, editar e excluir suas próprias postagens.
-[ ] As postagens podem ter restrições de privacidade, permitindo que sejam visíveis apenas para o próprio usuário, para amigos ou para o público em geral.
+[x] Os usuários devem ter a capacidade de criar próprias postagens.
+[x] Os usuários devem ter a capacidade de editar próprias postagens.
+[ ] Os usuários devem ter a capacidade de excluir suas próprias postagens.
 
 **Comentários:**
 

@@ -18,6 +18,7 @@ class PostsRepository implements IPostsRepository {
     title,
     content,
     midia,
+    likes = 0,
   }: ICreatePostDTO): Promise<Post> {
     const post = this.repository.create({
       id,
@@ -25,14 +26,23 @@ class PostsRepository implements IPostsRepository {
       title,
       content,
       midia,
+      likes,
     });
     await this.repository.save(post);
-
+    console.log("Post: ", post);
     return post;
   }
   async findById(id: string): Promise<Post> {
     const post = this.repository.findOne(id);
     return post;
+  }
+
+  async findByTitle(title: string): Promise<Post> {
+    return this.repository.findOne({ title });
+  }
+
+  async delete(id: string): Promise<void> {
+    this.repository.delete(id);
   }
 }
 

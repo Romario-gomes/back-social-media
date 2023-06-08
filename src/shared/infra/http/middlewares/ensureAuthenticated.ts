@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { JsonWebTokenError, TokenExpiredError, verify } from "jsonwebtoken";
 
+import { User } from "@modules/accounts/infra/typeorm/entities/User";
 import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/UsersRepository";
 
 import auth from "../../../../config/auth";
@@ -8,7 +9,25 @@ import { UsersTokensRepository } from "../../../../modules/accounts/infra/typeor
 import { AppError } from "../../../errors/AppError";
 
 interface IPayload {
-  sub: string;
+  email: string;
+}
+
+async function decoder(request: Request): Promise<User | undefined> {
+  const usersRepository = new UsersRepository();
+
+  const authHeader = request.headers.authorization;
+
+  if (!authHeader) {
+    throw new AppError("Token missing", 401);
+  }
+
+  const [, token] = authHeader.split(" ");
+
+  const { email } = verify(token, auth.secret_token) as IPayload;
+
+  const user = await usersRepository.findByEmailWithRolesAndPermissions(email);
+
+  return user;
 }
 
 export async function ensureAuthenticated(
@@ -16,28 +35,8 @@ export async function ensureAuthenticated(
   response: Response,
   next: NextFunction,
 ) {
-  // Padrão JWT
-  // Bearer 'token que está sendo passado'
-  const authHeader = request.headers.authorization;
-  const usersTokensRepository = new UsersTokensRepository();
-  const usersRepository = new UsersRepository();
-
-  if (!authHeader) {
-    throw new AppError("Token missing", 401);
-  }
-
-  // desestruturar o token
-  const [, token] = authHeader.split(" ");
-
   try {
-    const { sub: user_id } = verify(token, auth.secret_token) as IPayload;
-
-    /* const user = await usersTokensRepository.findByUserIdAndRefreshToken(
-      user_id,
-      token,
-    ); */
-
-    const user = await usersRepository.findByIdWithRolesAndPermissions(user_id);
+    const user = await decoder(request);
 
     if (!user) {
       throw new AppError("User does not exists!", 401);
@@ -46,7 +45,7 @@ export async function ensureAuthenticated(
     const rolesName = user.roles.map(role => role.name);
 
     request.user = {
-      id: user_id,
+      id: user.id,
       roles: rolesName,
       permissions: user.roles.flatMap(role => role.permission.map(p => p.name)),
     };
@@ -82,17 +81,24 @@ export function ensureAuthorized(roles: string[]) {
 }
 
 export function ensurePermission(permission: string[]) {
-  return (request: Request, response: Response, next: NextFunction) => {
-    const { permissions } = request.user;
-
-    const hasPermission = permission.some(permission =>
+  return async (request: Request, response: Response, next: NextFunction) => {
+    const user = await decoder(request);
+    const { roles } = user;
+    /* const { permissions } = request.user; */
+    console.log("parametro: ", permission);
+    console.log("User: ", user);
+    /* console.log("Permissões: ", permissions); */
+    /* const hasPermission = permission.some(permission =>
       permissions.includes(permission),
+    ); */
+
+    const hasPermission = roles.some(role =>
+      role.permission.some(p => permission.includes(p.name)),
     );
 
     if (!hasPermission) {
       throw new AppError("Invalid Permission", 403);
     }
-
     return next();
   };
 }

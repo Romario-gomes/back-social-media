@@ -42,20 +42,21 @@ Número de curtidas: O número de curtidas que o comentário recebeu.
 
 **Autenticação e autorização:**
 
-[ ] Apenas usuários autenticados devem ter permissão para criar postagens e fazer comentários.
-[ ] Cada usuário deve ter apenas acesso às suas próprias postagens e comentários, a menos que sejam compartilhados publicamente.
+[x] Apenas usuários autenticados devem ter permissão para criar postagens e fazer comentários.
 
 **Postagens:**
 [x] Os usuários devem ter a capacidade de criar próprias postagens.
 [x] Os usuários devem ter a capacidade de editar próprias postagens.
-[ ] Os usuários devem ter a capacidade de excluir suas próprias postagens.
+[x] Os usuários devem ter a capacidade de excluir suas próprias postagens.
+
+
 
 **Comentários:**
 
 [ ] Os usuários devem ter a capacidade de adicionar comentários às postagens de outros usuários.
 [ ] Os usuários devem poder editar ou excluir seus próprios comentários.
 
-**Curtidas:**
+<!-- **Curtidas:**
 
 [ ] Os usuários podem curtir postagens e comentários.
 [ ] Cada usuário deve ter a capacidade de curtir apenas uma vez cada postagem ou comentário.
@@ -65,23 +66,22 @@ Número de curtidas: O número de curtidas que o comentário recebeu.
 [ ] Os usuários podem compartilhar postagens de outros usuários em sua própria linha do tempo.
 Notificações:
 
-[ ] Os usuários podem receber notificações sobre atividades relevantes, como comentários em suas postagens ou menções em comentários.
+[ ] Os usuários podem receber notificações sobre atividades relevantes, como comentários em suas postagens ou menções em comentários. -->
 
 **Requisitos funcionais:**
 
-[ ] Registro de usuários: Permitir que os usuários se registrem fornecendo informações básicas, como nome de usuário, senha e e-mail.
-[ ] Autenticação e autorização: Garantir que apenas usuários autenticados tenham permissão para criar postagens e fazer comentários.
-[ ] Criação de postagens: Permitir que os usuários criem postagens com texto, imagens ou vídeos.
-[ ] Edição e exclusão de postagens: Permitir que os usuários editem ou excluam suas próprias postagens.
+[x] Registro de usuários: Permitir que os usuários se registrem fornecendo informações básicas, como nome de usuário, senha e e-mail.
+[ ] Deve ser possível fazer a listagem das postagens.
+[x] Autenticação e autorização: Garantir que apenas usuários autenticados tenham permissão para criar postagens e fazer comentários.
+[x] Criação de postagens: Permitir que os usuários criem postagens com texto.
+[x] Edição e exclusão de postagens: Permitir que os usuários editem ou excluam suas próprias postagens.
 [ ] Criação de comentários: Permitir que os usuários adicionem comentários às postagens de outros usuários.
 [ ] Edição e exclusão de comentários: Permitir que os usuários editem ou excluam seus próprios comentários.
-[ ] Curtidas: Permitir que os usuários curtam postagens e comentários.
-[ ] Privacidade e compartilhamento: Permitir que os usuários definam as configurações de privacidade de suas postagens e compartilhem postagens de outros usuários.
-[ ] Notificações: Enviar notificações aos usuários sobre atividades relevantes, como comentários em suas postagens.
+<!-- [ ] Curtidas: Permitir que os usuários curtam postagens e comentários. -->
+<!-- [ ] Privacidade e compartilhamento: Permitir que os usuários definam as configurações de privacidade de suas postagens e compartilhem postagens de outros usuários. -->
 
 **Requisitos não funcionais**:
 
-[ ] Segurança: Proteger as informações dos usuários por meio de medidas de segurança, como criptografia de senhas e proteção contra ataques de injeção de código.
-[ ] Desempenho: Garantir que o sistema seja responsivo e possa lidar com um número razoável de usuários e atividades simultâneas.
-- Escalabilidade: Projetar o sistema de forma a permitir o crescimento futuro e o aumento na quantidade de usuários e dados.
-[ ] Usabilidade: Criar uma interface intuitiva e amigável para que os usuários possam navegar facilmente, criar postagens e interagir com outras postagens e comentários.
+[x] Segurança: Proteger as informações dos usuários por meio de medidas de segurança, como criptografia de senhas e proteção contra ataques de injeção de código.
+[x] Desempenho: Garantir que o sistema seja responsivo e possa lidar com um número razoável de usuários e atividades simultâneas.
+[x] Escalabilidade: Projetar o sistema de forma a permitir o crescimento futuro e o aumento na quantidade de usuários e dados.

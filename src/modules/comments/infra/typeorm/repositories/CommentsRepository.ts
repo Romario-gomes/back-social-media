@@ -23,6 +23,12 @@ class CommentsRepository implements ICommentsRepository {
 
     return comment;
   }
+
+  async findById(id: string): Promise<Comment> {
+    const comment = await this.repository.findOne(id);
+
+    return comment;
+  }
 }
 
 export { CommentsRepository };

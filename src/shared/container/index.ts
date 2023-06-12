@@ -2,6 +2,8 @@ import { container } from "tsyringe";
 
 import "./providers";
 
+import { CommentsRepository } from "@modules/comments/infra/typeorm/repositories/CommentsRepository";
+import { ICommentsRepository } from "@modules/comments/repositories/ICommentsRepository";
 import { PostsRepository } from "@modules/posts/infra/typeorm/repositories/PostsRepository";
 import { IPostsRepository } from "@modules/posts/repositories/IPostsRepository";
 
@@ -36,4 +38,9 @@ container.registerSingleton<IPermissionsRepository>(
 container.registerSingleton<IPostsRepository>(
   "PostsRepository",
   PostsRepository,
+);
+
+container.registerSingleton<ICommentsRepository>(
+  "CommentsRepository",
+  CommentsRepository,
 );

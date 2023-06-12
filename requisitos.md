@@ -53,7 +53,7 @@ Número de curtidas: O número de curtidas que o comentário recebeu.
 
 **Comentários:**
 
-[ ] Os usuários devem ter a capacidade de adicionar comentários às postagens de outros usuários.
+[x] Os usuários devem ter a capacidade de adicionar comentários às postagens de outros usuários.
 [ ] Os usuários devem poder editar ou excluir seus próprios comentários.
 
 <!-- **Curtidas:**

@@ -1,5 +1,6 @@
 import { PermissionsRepositoryInMemory } from "@modules/accounts/repositories/in-memory/PermissionsRepositoryInMemory";
 import { RolesRepositoryInMemory } from "@modules/accounts/repositories/in-memory/RolesRepositoryInMemory";
+import { AppError } from "@shared/errors/AppError";
 
 import { CreatePermissionUseCase } from "../createPermission/CreatePermissionUseCase";
 import { CreateRoleUseCase } from "./CreateRoleUseCase";
@@ -32,7 +33,26 @@ describe("Create Role", () => {
       description: "user",
       permissions: [permission.id],
     });
-    console.log(createdRole);
     expect(createdRole).toHaveProperty("id");
+  });
+
+  it("Should not be able to create a new Role with name already exists", async () => {
+    const permission = await createPermissionUseCase.execute({
+      name: "Permissao",
+      description: "Permissao descriçao",
+    });
+    await createRoleUseCase.execute({
+      name: "ROLE_USER",
+      description: "user",
+      permissions: [permission.id],
+    });
+
+    await expect(
+      createRoleUseCase.execute({
+        name: "ROLE_USER",
+        description: "user",
+        permissions: [permission.id],
+      }),
+    ).rejects.toEqual(new AppError("Role already Exists"));
   });
 });

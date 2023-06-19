@@ -44,6 +44,14 @@ class PostsRepository implements IPostsRepository {
   async delete(id: string): Promise<void> {
     this.repository.delete(id);
   }
+
+  async list(): Promise<Post[]> {
+    const posts = await this.repository.find({
+      relations: ["comments"],
+    });
+
+    return posts;
+  }
 }
 
 export { PostsRepository };

@@ -13,7 +13,7 @@ describe("Create Permission", () => {
     );
   });
 
-  it("deve ser possivel criar uma permissao", async () => {
+  it("Should be able to create a new Permission", async () => {
     const createdPermission = await createPermissionUseCase.execute({
       name: "Permissão teste",
       description: "Descrição teste",
@@ -28,7 +28,7 @@ describe("Create Permission", () => {
     });
   });
 
-  it("não deve ser possível criar permissão com nome já existente", async () => {
+  it("Should not be able to create a new Permission with name already exists", async () => {
     await createPermissionUseCase.execute({
       name: "Permissão teste",
       description: "Descrição teste",

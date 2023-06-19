@@ -4,9 +4,12 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryColumn,
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
+
+import { Comment } from "@modules/comments/infra/typeorm/entities/Comment";
 
 import { User } from "../../../../accounts/infra/typeorm/entities/User";
 
@@ -33,6 +36,9 @@ class Post {
 
   @Column()
   likes: number;
+
+  @OneToMany(() => Comment, comment => comment.post)
+  comments: Comment[];
 
   @CreateDateColumn()
   created_at: Date;

@@ -5,6 +5,7 @@ interface IPostsRepository {
   create(data: ICreatePostDTO): Promise<Post>;
   findById(id: string): Promise<Post>;
   findByTitle(title: string): Promise<Post>;
+  list(): Promise<Post[]>;
 
   delete(id: string): Promise<void>;
 }

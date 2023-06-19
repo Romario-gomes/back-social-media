@@ -54,7 +54,7 @@ Número de curtidas: O número de curtidas que o comentário recebeu.
 **Comentários:**
 
 [x] Os usuários devem ter a capacidade de adicionar comentários às postagens de outros usuários.
-[ ] Os usuários devem poder editar ou excluir seus próprios comentários.
+[x] Os usuários devem poder editar ou excluir seus próprios comentários.
 
 <!-- **Curtidas:**
 
@@ -71,12 +71,12 @@ Notificações:
 **Requisitos funcionais:**
 
 [x] Registro de usuários: Permitir que os usuários se registrem fornecendo informações básicas, como nome de usuário, senha e e-mail.
-[ ] Deve ser possível fazer a listagem das postagens.
+[x] Deve ser possível fazer a listagem das postagens.
 [x] Autenticação e autorização: Garantir que apenas usuários autenticados tenham permissão para criar postagens e fazer comentários.
 [x] Criação de postagens: Permitir que os usuários criem postagens com texto.
 [x] Edição e exclusão de postagens: Permitir que os usuários editem ou excluam suas próprias postagens.
-[ ] Criação de comentários: Permitir que os usuários adicionem comentários às postagens de outros usuários.
-[ ] Edição e exclusão de comentários: Permitir que os usuários editem ou excluam seus próprios comentários.
+[x] Criação de comentários: Permitir que os usuários adicionem comentários às postagens de outros usuários.
+[x] Edição e exclusão de comentários: Permitir que os usuários editem ou excluam seus próprios comentários.
 <!-- [ ] Curtidas: Permitir que os usuários curtam postagens e comentários. -->
 <!-- [ ] Privacidade e compartilhamento: Permitir que os usuários definam as configurações de privacidade de suas postagens e compartilhem postagens de outros usuários. -->
 

@@ -33,7 +33,7 @@ describe("Create User", () => {
     });
   });
 
-  it("Nao deve ser possivel criar usuario com email já existente", async () => {
+  it("Should not be able to create a new User with name already exists", async () => {
     await createUserUseCase.execute({
       name: "John Doe",
       email: "johndoe@email.com",

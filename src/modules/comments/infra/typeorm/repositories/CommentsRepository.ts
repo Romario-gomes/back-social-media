@@ -13,11 +13,12 @@ class CommentsRepository implements ICommentsRepository {
   }
 
   async create({
+    id,
     user_id,
     post_id,
     content,
   }: ICreateCommentDTO): Promise<Comment> {
-    const comment = this.repository.create({ user_id, post_id, content });
+    const comment = this.repository.create({ id, user_id, post_id, content });
 
     await this.repository.save(comment);
 
@@ -28,6 +29,16 @@ class CommentsRepository implements ICommentsRepository {
     const comment = await this.repository.findOne(id);
 
     return comment;
+  }
+
+  async delete(id: string): Promise<void> {
+    this.repository.delete(id);
+  }
+
+  async list(): Promise<Comment[]> {
+    const comments = await this.repository.find();
+
+    return comments;
   }
 }
 

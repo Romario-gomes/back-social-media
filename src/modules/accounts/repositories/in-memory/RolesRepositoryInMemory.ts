@@ -1,5 +1,5 @@
 import { ICreateRoleDTO } from "../../dtos/ICreateRoleDTO";
-import {  Role } from "../../infra/typeorm/entities/Role";
+import { Role } from "../../infra/typeorm/entities/Role";
 import { IRolesRepository } from "../IRolesRepository";
 
 class RolesRepositoryInMemory implements IRolesRepository {

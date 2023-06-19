@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
 import { AppError } from "../../../../shared/errors/AppError";
-import {  Role } from "../../infra/typeorm/entities/Role";
+import { Role } from "../../infra/typeorm/entities/Role";
 import { IPermissionsRepository } from "../../repositories/IPermissionsRepository";
 import { IRolesRepository } from "../../repositories/IRolesRepository";
 
@@ -18,7 +18,7 @@ class CreateRoleUseCase {
     const roleAlreadyExits = await this.rolesRepository.findByName(name);
 
     if (roleAlreadyExits) {
-      throw new AppError("Roles already Exists");
+      throw new AppError("Role already Exists");
     }
 
     const getPermissions = await this.permissionsRepository.findByIds(

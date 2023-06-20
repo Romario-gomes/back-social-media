@@ -14,8 +14,6 @@ interface IPayLoad {
 }
 
 interface IResponse {
-  permissions: string[];
-  roles: string[];
   token: string;
   refreshToken: string;
 }
@@ -46,18 +44,10 @@ class RefreshTokenUseCase {
     if (!userToken) {
       throw new AppError("Refresh Token does not exists!");
     }
-    const userPermissionsAndRoles =
-      await this.usersRepository.findByIdWithRolesAndPermissions(user_id);
 
-    const roles = userPermissionsAndRoles.roles.map(role => role.name);
-    const permission = userPermissionsAndRoles.roles[0].permission.map(
-      permission => permission.name,
-    );
     const newToken = sign(
       {
         email,
-        permissions: permission,
-        roles,
       },
       secret_token,
       {
@@ -86,8 +76,6 @@ class RefreshTokenUseCase {
     return {
       token: newToken,
       refreshToken: refresh_token,
-      permissions: permission,
-      roles,
     };
   }
 }

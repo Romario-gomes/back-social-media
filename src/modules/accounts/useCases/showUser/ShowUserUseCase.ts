@@ -7,7 +7,7 @@ import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepositor
 import { AppError } from "@shared/errors/AppError";
 
 interface IRequest {
-  token: string;
+  id: string;
 }
 
 interface IPayLoad {
@@ -21,23 +21,14 @@ class ShowUserUseCase {
     private usersRepository: IUsersRepository,
   ) {}
 
-  async execute({ token }: IRequest): Promise<User> {
-    try {
-      const { email } = verify(token, auth.secret_token) as IPayLoad;
+  async execute({ id }: IRequest): Promise<User> {
+    const user = this.usersRepository.findById(id);
 
-      const user =
-        await this.usersRepository.findByEmailWithRolesAndPermissions(email);
-
-      return user;
-    } catch (error) {
-      if (error instanceof TokenExpiredError) {
-        throw new AppError("Token expired", 401, "token.expired");
-      } else if (error instanceof JsonWebTokenError) {
-        throw new AppError("Token invalid", 401, "token.invalid");
-      } else {
-        throw new AppError("Unexpected error", 500);
-      }
+    if (!user) {
+      throw new AppError("User not exists");
     }
+
+    return user;
   }
 }
 

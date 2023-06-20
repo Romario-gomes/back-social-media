@@ -19,8 +19,8 @@ class PermissionsRepositoryInMemory implements IPermissionsRepository {
 
     return permission;
   }
-  findById(id: string): Promise<Permission> {
-    throw new Error("Method not implemented.");
+  async findById(id: string): Promise<Permission> {
+    return this.permissions.find(permission => permission.id === id);
   }
   async findByName(name: string): Promise<Permission> {
     return this.permissions.find(permission => permission.name === name);

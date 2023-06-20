@@ -24,9 +24,9 @@ class CommentsRepositoryInMemory implements ICommentsRepository {
     return this.comments.find(comment => comment.id === id);
   }
   async delete(id: string): Promise<void> {
-    const entityIndex = this.comments.findIndex(comment => comment.id === id);
-    if (entityIndex !== -1) {
-      this.comments.splice(entityIndex, 1);
+    const commentIndex = this.comments.findIndex(comment => comment.id === id);
+    if (commentIndex !== -1) {
+      this.comments.splice(commentIndex, 1);
     }
   }
   async list(): Promise<Comment[]> {

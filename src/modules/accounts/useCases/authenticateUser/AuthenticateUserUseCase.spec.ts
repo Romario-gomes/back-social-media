@@ -39,6 +39,16 @@ describe("Authenticate user", () => {
       roles: [],
     };
 
+  it("should not be able to authenticate with invalid token", async () => {
+    await expect(
+      authenticateUserUseCase.execute({
+        email: "user@teste.com",
+        password: "1234",
+      })
+    ).rejects.toEqual(new AppError("Invalid token."));
+  });
+    
+
     await createUserUseCase.execute(user);
 
     const result = await authenticateUserUseCase.execute({

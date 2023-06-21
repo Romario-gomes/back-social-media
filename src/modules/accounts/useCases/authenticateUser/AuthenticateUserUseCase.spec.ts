@@ -29,7 +29,6 @@ describe("Authenticate user", () => {
       roles: [],
     };
 
-    await usersRepositoryInMemory.create(user);
     const result = await authenticateUserUseCase.execute({
       email: user.email,
       password: user.password,

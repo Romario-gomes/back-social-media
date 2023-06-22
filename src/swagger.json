@@ -1,0 +1,263 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Social Media documentation",
+    "description": "This is an API social media",
+    "version": "1.0.0",
+    "contact": {
+      "email": "romario.desenvolvedor@gmail.com"
+    }
+  },
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "List all users",
+        "description": "List all users",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      },
+                      "avatar": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create a user",
+        "description": "Create a new user",
+        "security": [
+          {
+            "bearAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "roles": {
+                    "type": "array"
+                  }
+                },
+                "example": {
+                  "name": "username",
+                  "email": "email@test.com",
+                  "passowrd": "pass123!",
+                  "roles": [
+                    "123",
+                    "456"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Category already exists"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update user",
+        "description": "Update user properties",
+        "security": [
+          {
+            "bearAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "John Doe Smith",
+                  "email": "johndoe@email.com",
+                  "passowrd": "pass124!"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Category already exists"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Upload avatar",
+        "description": "Upload image avatar profile",
+        "security": [
+          {
+            "bearAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sessions": {
+      "post": {
+        "tags": ["Session"],
+        "summary": ["Authentication user"],
+        "description": "Authentication user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Email or password incorrect!"
+          }
+        }
+      }
+    },
+    "/refresh-token": {
+      "post": {
+        "tags": ["RefreshToken"],
+        "summary": ["Refresh Token"],
+        "description": "Refresh Token expired",
+        "security": [
+          {
+            "bearAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "refreshToken": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": "string",
+                    "refreshToken": "string"
+                  }
+                  
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Invalid Token"
+          }
+        }
+      }
+    },
+
+    "components": {
+      "securitySchemes": {
+        "bearAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    }
+  }
+}

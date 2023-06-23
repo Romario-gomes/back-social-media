@@ -10,7 +10,7 @@ const createPermissionController = new CreatePermissionController();
 permissionsRoutes.post(
   "/",
   ensureAuthenticated,
-  is(["Permissão 2"]),
+  is(["Permissão 1"]),
   createPermissionController.handle,
 );
 

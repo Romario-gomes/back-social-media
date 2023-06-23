@@ -15,6 +15,6 @@ const listCommentsController = new ListCommentsController();
 commentsRoutes.get("/", listCommentsController.handle);
 commentsRoutes.post("/:id", createCommentController.handle);
 commentsRoutes.put("/", updateCommentController.handle);
-commentsRoutes.delete("/", deleteCommentController.handle);
+commentsRoutes.delete("/:id", deleteCommentController.handle);
 
 export { commentsRoutes };

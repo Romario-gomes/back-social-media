@@ -15,7 +15,7 @@ class UpdatePostUseCase {
     const post = await this.postRepository.findById(data.id);
 
     if (!post) {
-      throw new AppError("Post Not Found");
+      throw new AppError("Post Not Found", 404);
     }
 
     Object.assign(post, data);

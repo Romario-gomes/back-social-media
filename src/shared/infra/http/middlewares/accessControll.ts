@@ -46,7 +46,7 @@ export function is(permission: string[]): RequestHandler {
     );
 
     if (!hasPermission) {
-      throw new AppError("Invalid Permission", 403);
+      throw new AppError("Invalid Permission", 401);
     }
     return next();
   };

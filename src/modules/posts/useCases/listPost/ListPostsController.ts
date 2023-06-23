@@ -9,7 +9,7 @@ class ListPostsController {
 
     const posts = await listPostUseCase.execute();
 
-    return response.status(201).json(posts);
+    return response.status(200).json(posts);
   }
 }
 

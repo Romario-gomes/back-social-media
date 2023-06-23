@@ -14,11 +14,11 @@ class CreateRoleUseCase {
     private permissionsRepository: IPermissionsRepository,
   ) {}
 
-  async execute({ name, description, permissions }): Promise<Role | AppError> {
+  async execute({ name, description, permissions }): Promise<Role> {
     const roleAlreadyExits = await this.rolesRepository.findByName(name);
 
     if (roleAlreadyExits) {
-      throw new AppError("Role already Exists");
+      throw new AppError("Role already Exists", 409);
     }
 
     const getPermissions = await this.permissionsRepository.findByIds(

@@ -21,7 +21,7 @@ class CreatePostUseCase {
     const postAlreadyExists = await this.postsRepository.findByTitle(title);
 
     if (postAlreadyExists) {
-      throw new AppError("Post Already exists");
+      throw new AppError("Post Already exists", 409);
     }
 
     const post = await this.postsRepository.create({

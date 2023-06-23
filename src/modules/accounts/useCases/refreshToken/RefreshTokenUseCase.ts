@@ -42,7 +42,7 @@ class RefreshTokenUseCase {
       );
 
     if (!userToken) {
-      throw new AppError("Refresh Token does not exists!");
+      throw new AppError("Refresh Token does not exists!", 404);
     }
 
     const newToken = sign(

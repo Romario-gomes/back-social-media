@@ -250,6 +250,502 @@
       }
     },
 
+    "/permissions": {
+      "post": {
+        "tags": ["Permissions"],
+        "summary": ["Create Permission"],
+        "description": "Create a new Permission",
+        "security": [
+          {
+            "bearAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": "string",
+                    "name": "string",
+                    "description": "string",
+                    "created_at": "string"
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Permission already exists"
+          }
+        }
+      }
+    },
+    "/roles": {
+      "post": {
+        "tags": ["Roles"],
+        "summary": ["Create Role"],
+        "description": "Create a new Role",
+        "security": [
+          {
+            "bearAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "permissions": {
+                    "type": "array"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201": {
+            "description": "Created"
+          },
+          "409": {
+            "description": "Role already exists"
+          }
+        }
+      }
+    },
+    "/posts": {
+      "post": {
+        "tags": ["Post"],
+        "summary": ["Create Post"],
+        "description": "Create a new Post",
+        "security": [
+          {
+            "bearAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "midia": {
+                    "type": "string"
+                  },
+                  "user_id": {
+                    "type": "string"
+                  },
+                  "likes": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": "string",
+                    "user_id": "string",
+                    "title": "string",
+                    "content": "string",
+                    "midia": "string",
+                    "likes": "number",
+                    "created_at": "string"
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Permission already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Post"],
+        "summary": "List all posts",
+        "description": "List all posts",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "user_id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "content": {
+                        "type": "string"
+                      },
+                      "midia": {
+                        "type": "string"
+                      },
+                      "likes": {
+                        "type": "number"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "comments": {
+                        "type": "object",
+                        "properties": {
+                          "id": "string",
+                          "user_id": "string",
+                          "post_id": "string",
+                          "content": "string",
+                          "created_at": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Post"
+        ],
+        "summary": "Update post",
+        "description": "Update post properties",
+        "security": [
+          {
+            "bearAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "midia": {
+                    "type": "string"
+                  },
+                  "user_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "content": {
+                        "type": "string"
+                      },
+                      "midia": {
+                        "type": "string"
+                      },
+                      "user_id": {
+                        "type": "string"
+                      },
+                      "likes": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Post Not Found"
+          }
+        }
+      }
+    },
+    "/posts/{id}": {
+      "delete": {
+        "tags": ["Post"],
+        "summary": "Delete post",
+        "description": "Delete post",
+        "security": [
+          {
+            "bearAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "post id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Post not found"
+          },
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/comments": {
+      "post": {
+        "tags": ["Comments"],
+        "summary": ["Create Comment"],
+        "description": "Create a new Comment",
+        "security": [
+          {
+            "bearAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "post id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": "string",
+                    "user_id": "string",
+                    "post_id": "string",
+                    "content": "string",
+                    "created_at": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Comments"],
+        "summary": "List all comments",
+        "description": "List all comments",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "user_id": {
+                        "type": "string"
+                      },
+                      "post_id": {
+                        "type": "string"
+                      },
+                      "content": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Update comment",
+        "description": "Update comment properties",
+        "security": [
+          {
+            "bearAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "user_id": {
+                        "type": "string"
+                      },
+                      "post_id": {
+                        "type": "string"
+                      },
+                      "content": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Comment Not Found"
+          }
+        }
+      }
+    },
+    "/comments/{id}": {
+      "delete": {
+        "tags": ["Comments"],
+        "summary": "Delete comment",
+        "description": "Delete comment",
+        "security": [
+          {
+            "bearAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "comment id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Comment not found"
+          },
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+
+
     "components": {
       "securitySchemes": {
         "bearAuth": {

@@ -1,7 +1,7 @@
 import { injectable, inject } from "tsyringe";
 
 import { AppError } from "../../../../shared/errors/AppError";
-import {  Permission } from "../../infra/typeorm/entities/Permission";
+import { Permission } from "../../infra/typeorm/entities/Permission";
 import { IPermissionsRepository } from "../../repositories/IPermissionsRepository";
 
 @injectable()
@@ -19,7 +19,7 @@ class CreatePermissionUseCase {
     );
 
     if (permissionAlreadyExists) {
-      throw new AppError("Permissão já existente");
+      throw new AppError("Permission already exists", 409);
     }
 
     const permissionCreated = await this.permissionRepository.create({

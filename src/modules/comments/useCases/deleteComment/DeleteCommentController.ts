@@ -5,7 +5,7 @@ import { DeleteCommentUseCase } from "./DeleteCommentUseCase";
 
 class DeleteCommentController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { id } = request.body;
+    const { id } = request.params;
     const deleteCommentUseCase = container.resolve(DeleteCommentUseCase);
 
     await deleteCommentUseCase.execute(id);

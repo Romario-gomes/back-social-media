@@ -7,10 +7,9 @@ export class AppError {
 
   public readonly code: string;
 
-  constructor(message: string, statusCode = 400, code = "unexpected.error") {
+  constructor(message: string, statusCode = 400) {
     this.message = message;
     this.statusCode = statusCode;
     this.error = true;
-    this.code = code;
   }
 }

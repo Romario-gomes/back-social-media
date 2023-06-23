@@ -25,7 +25,7 @@ class ShowUserUseCase {
     const user = this.usersRepository.findById(id);
 
     if (!user) {
-      throw new AppError("User not exists");
+      throw new AppError("User not exists", 404);
     }
 
     return user;

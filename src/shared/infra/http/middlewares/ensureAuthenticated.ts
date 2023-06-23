@@ -16,20 +16,19 @@ export async function ensureAuthenticated(
   const authHeader = request.headers.authorization;
 
   if (!authHeader) {
-    throw new AppError("Token ausente", 401);
+    throw new AppError("Token missing", 401);
   }
 
   const [, token] = authHeader.split(" ");
 
   try {
     const { sub: user_id } = verify(token, auth.secret_token) as IPayload;
-    console.log("Sub pego: ", user_id);
     request.user = {
       id: user_id,
     };
 
     next();
   } catch {
-    throw new AppError("Token inválido", 401);
+    throw new AppError("Invalid token", 401);
   }
 }

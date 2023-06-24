@@ -1,4 +1,5 @@
 import { app } from "./app";
 import "../../container";
 
-app.listen(3333, () => console.log("Server is running!"));
+const port = process.env.PORT || 3000;
+app.listen(port || 3000, () => console.log(`Server is running! port ${port}`));

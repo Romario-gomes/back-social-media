@@ -1,10 +1,10 @@
 {
   "type": "postgres",
-  "port": 1318,
-  "host": "localhost",
-  "username": "docker",
-  "password": "social",
-  "database": "social",
+  "port": 5867,
+  "host": "containers-us-west-76.railway.app",
+  "username": "postgres",
+  "password": "7orzs3JRE3igAqzniD5b",
+  "database": "railway",
   "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
   "entities": ["./dist/modules/**/entities/*.js"],
   "cli": {

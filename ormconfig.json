@@ -6,7 +6,7 @@
   "password": "7orzs3JRE3igAqzniD5b",
   "database": "railway",
   "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
-  "entities": ["./dist/modules/**/entities/*.js"],
+  "entities": ["./dist/modules/**/infra/typeorm/entities/*.js"],
   "cli": {
       "migrationsDir": "./dist/shared/infra/typeorm/migrations"
   }

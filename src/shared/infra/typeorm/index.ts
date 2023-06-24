@@ -7,7 +7,7 @@ import {
 
 export default async (): Promise<Connection> => {
   const defaultOptions = await getConnectionOptions();
-  console.log("Conections: defaultOptions");
+  console.log("Conections: ", defaultOptions);
 
   return createConnection(
     Object.assign(defaultOptions, {

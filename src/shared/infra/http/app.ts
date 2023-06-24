@@ -5,14 +5,19 @@ import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
+import createConnection from "@shared/infra/typeorm";
+
 import swaggerFile from "../../../swagger.json";
 import { AppError } from "../../errors/AppError";
-import createConnection from "../typeorm";
 import { router } from "./routes";
 
 const app = express();
 
-createConnection();
+createConnection().then(response => {
+  if (response.isConnected) {
+    console.log("Conectado no banco!");
+  }
+});
 
 app.use(cors());
 

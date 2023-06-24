@@ -1,8 +1,8 @@
 {
   "type": "postgres",
   "url": "postgresql://postgres:7orzs3JRE3igAqzniD5b@containers-us-west-76.railway.app:5867/railway",
-  "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
-  "entities": ["./dist/modules/**/infra/typeorm/entities/*.js"],
+  "migrations": ["./src/shared/infra/typeorm/migrations/*.js"],
+  "entities": ["./src/modules/**/infra/typeorm/entities/*.js"],
   "cli": {
       "migrationsDir": "./dist/shared/infra/typeorm/migrations"
   }

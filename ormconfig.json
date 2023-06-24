@@ -1,10 +1,7 @@
 {
   "type": "postgres",
-  "port": 5867,
-  "host": "containers-us-west-76.railway.app",
-  "username": "postgres",
-  "password": "7orzs3JRE3igAqzniD5b",
-  "database": "railway",
+  "url": "postgresql://postgres:7orzs3JRE3igAqzniD5b@containers-us-west-76.railway.app:5867/railway",
+ 
   "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
   "entities": ["./dist/modules/**/infra/typeorm/entities/*.js"],
   "cli": {

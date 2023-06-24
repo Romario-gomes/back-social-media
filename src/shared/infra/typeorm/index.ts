@@ -5,20 +5,12 @@ import {
   getConnectionOptions,
 } from "typeorm";
 
-export default async (
-  host = "containers-us-west-76.railway.app",
-): Promise<Connection> => {
+export default async (): Promise<Connection> => {
   const defaultOptions = await getConnectionOptions();
-  const connection = getConnection();
-  if (connection.isConnected) {
-    console.log("Conectado com sucesso!");
-  } else {
-    console.log("Falha ao conectar ao banco de dados.");
-  }
+  console.log("Conections: defaultOptions");
 
   return createConnection(
     Object.assign(defaultOptions, {
-      host,
       database: defaultOptions.database,
     }),
   );

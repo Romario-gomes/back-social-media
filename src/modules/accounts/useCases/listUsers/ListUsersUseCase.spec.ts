@@ -12,14 +12,14 @@ describe("List Users", () => {
   });
 
   it("Should be able to list all users", async () => {
-    usersRepositoryInMemory.create({
+    await usersRepositoryInMemory.create({
       name: "teste",
       email: "email@teste.com",
       password: "12312",
       roles: [],
     });
 
-    usersRepositoryInMemory.create({
+    await usersRepositoryInMemory.create({
       name: "teste2",
       email: "email2@teste.com",
       password: "12312",

@@ -1,3 +1,4 @@
+import { hash } from "bcryptjs";
 import { v4 as uuidV4 } from "uuid";
 
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
@@ -15,11 +16,11 @@ class UsersRepositoryInMemory implements IUsersRepository {
     roles,
   }: ICreateUserDTO): Promise<User> {
     const user = new User();
-
+    const passwordHash = await hash(password, 8);
     Object.assign(user, {
       email,
       name,
-      password,
+      password: passwordHash,
       roles,
     });
 

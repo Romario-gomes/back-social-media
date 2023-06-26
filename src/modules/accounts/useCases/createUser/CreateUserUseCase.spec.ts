@@ -24,7 +24,6 @@ describe("Create User", () => {
       roles: "12345",
       password: "123456789",
     });
-    console.log(createdUser);
     expect(createdUser).toHaveProperty("id");
     expect(createdUser).toMatchObject({
       id: createdUser.id,
@@ -48,6 +47,6 @@ describe("Create User", () => {
         roles: "12345",
         password: "123456789",
       }),
-    ).rejects.toEqual(new AppError("User already Exists"));
+    ).rejects.toEqual(new AppError("User already Exists", 409));
   });
 });

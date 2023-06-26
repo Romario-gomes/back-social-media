@@ -24,19 +24,17 @@ describe("Refresh Token", () => {
 
   it("Should be able to refresh a token already exists", async () => {
     // Crie um usuário fictício para simular a existência do token de atualização
-
     const user = await usersRepositoryInMemory.create({
       name: "teste",
       email: "email@teste.com",
       password: "12312",
       roles: [],
     });
-    // Gere um token de atualização para o usuário fictício
     const refreshToken = sign(
       { sub: user.id, email: user.email },
-      "aa6ee63048ffd029aa16ed6a2cd65f39",
+      process.env.TEST_SECRET_KEY,
       {
-        expiresIn: "10s", // Defina um tempo de expiração adequado para o token de atualização
+        expiresIn: "10s",
       },
     );
     await usersTokensRepositoryInMemory.create({
@@ -45,17 +43,10 @@ describe("Refresh Token", () => {
       expires_date: new Date(),
     });
 
-    // Execute o caso de uso para atualizar o token
     const response = await refreshTokenUseCase.execute(refreshToken);
 
-    // Verifique se o novo token e o token de atualização foram gerados corretamente
     expect(response).toHaveProperty("token");
     expect(response).toHaveProperty("refreshToken");
-
-    // Outros testes que você possa querer realizar, dependendo dos requisitos da sua aplicação
-    // ...
-
-    // Você também pode verificar se o token de atualização foi removido do repositório, se necessário
     const userToken =
       await usersTokensRepositoryInMemory.findByUserIdAndRefreshToken(
         user.id,

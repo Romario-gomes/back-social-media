@@ -250,6 +250,7 @@
       }
     },
 
+<<<<<<< HEAD
     "/permissions": {
       "post": {
         "tags": ["Permissions"],
@@ -746,6 +747,8 @@
     },
 
 
+=======
+>>>>>>> 1792a38 (Feat(Initial documention with swagger): add)
     "components": {
       "securitySchemes": {
         "bearAuth": {

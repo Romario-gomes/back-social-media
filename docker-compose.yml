@@ -8,10 +8,9 @@ services:
     ports:
       - 5432:5432
     environment: 
-      - POSTGRES_USER=postgres
-      - POSTGRES_POST=5867
-      - POSTGRES_PASSWORD=7orzs3JRE3igAqzniD5b
-      - POSTGRES_DB=railway
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=social
+      - POSTGRES_DB=social
     volumes: 
       - pgdata:/data/postgres
   app:

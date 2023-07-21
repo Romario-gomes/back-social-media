@@ -1,9 +1,13 @@
 {
   "type": "postgres",
-  "url": "postgresql://postgres:7orzs3JRE3igAqzniD5b@containers-us-west-76.railway.app:5867/railway",
-  "migrations": ["src/shared/infra/typeorm/migrations/*.ts"],
-  "entities": ["src/modules/**/infra/typeorm/entities/*.ts"],
+  "port": 5432,
+  "host": "localhost",
+  "username": "docker",
+  "password": "social",
+  "database": "social",
+  "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
+  "entities": ["./src/modules/**/entities/*.ts"],
   "cli": {
-      "migrationsDir": "./dist/shared/infra/typeorm/migrations"
+      "migrationsDir": "./src/shared/infra/typeorm/migrations"
   }
 }

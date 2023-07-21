@@ -1,5 +1,4 @@
 import "reflect-metadata";
-<<<<<<< HEAD
 import "@shared/container";
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
@@ -7,12 +6,6 @@ import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
 import createConnection from "@shared/infra/typeorm";
-=======
-import express, { NextFunction, Request, Response } from "express";
-import "express-async-errors";
-import swaggerUi from "swagger-ui-express";
-import cors from "cors";
->>>>>>> 1792a38 (Feat(Initial documention with swagger): add)
 
 import swaggerFile from "../../../swagger.json";
 import { AppError } from "../../errors/AppError";

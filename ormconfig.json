@@ -3,8 +3,8 @@
   "port": 5432,
   "host": "localhost",
   "username": "docker",
-  "password": "social",
-  "database": "social",
+  "password": "yz3vRaLEYNzI8HrT39zMPff1m48VMXqm",
+  "database": "social_1lk1",
   "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
   "entities": ["./src/modules/**/entities/*.ts"],
   "cli": {

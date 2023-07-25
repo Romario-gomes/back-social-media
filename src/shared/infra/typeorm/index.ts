@@ -1,7 +1,7 @@
 import { Connection, createConnection, getConnectionOptions } from "typeorm";
 
 export default async (
-  host = "dpg-ciu1gvh5rnuhcnsg1rog-a",
+  host = "dpg-civrfek07spr6taa2t0g-a",
 ): Promise<Connection> => {
   const defaultOptions = await getConnectionOptions();
 

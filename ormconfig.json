@@ -6,7 +6,7 @@
   "password": "fNUs5QKBO1rfGotmpw2Y96mzXXKM6gU0",
   "database": "social_2i09",
   "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
-  "entities": ["./dist/modules/**/entities/*.js"],
+  "entities": ["./dist/modules/**/infra/typeorm/entities/*.js"],
   "cli": {
       "migrationsDir": "./dist/shared/infra/typeorm/migrations"
   }

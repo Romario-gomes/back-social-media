@@ -1,10 +1,10 @@
 {
   "type": "postgres",
   "port": 5432,
-  "host": "dpg-civrfek07spr6taa2t0g-a",
+  "host": "dpg-cj21sbh5rnuukffomsc0-a",
   "username": "docker",
-  "password": "fNUs5QKBO1rfGotmpw2Y96mzXXKM6gU0",
-  "database": "social_2i09",
+  "password": "dsJz5dwIy3kC8eUUCNgt3cYd61TqMmrd",
+  "database": "social_09ph",
   "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
   "entities": ["./dist/modules/**/infra/typeorm/entities/*.js"],
   "cli": {

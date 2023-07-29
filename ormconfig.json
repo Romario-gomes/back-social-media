@@ -5,7 +5,7 @@
   "username": "docker",
   "password": "dsJz5dwIy3kC8eUUCNgt3cYd61TqMmrd",
   "database": "social_09ph",
-  "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
+  "migrations": ["./dist/migrations/*.js"],
   "entities": ["./dist/modules/**/infra/typeorm/entities/*.js"],
   "cli": {
       "migrationsDir": "./dist/shared/infra/typeorm/migrations"

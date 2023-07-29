@@ -1,10 +1,10 @@
 {
   "type": "postgres",
   "port": 5432,
-  "host": "dpg-cj21sbh5rnuukffomsc0-a.oregon-postgres.render.com",
-  "username": "docker",
-  "password": "dsJz5dwIy3kC8eUUCNgt3cYd61TqMmrd",
-  "database": "social_09ph",
+  "host": "ep-sweet-cloud-47225962-pooler.us-east-1.postgres.vercel-storage.com",
+  "username": "default",
+  "password": "qusmvB7xgT4C",
+  "database": "verceldb",
   "migrations": ["./dist/migrations/*.js"],
   "entities": ["./dist/modules/**/infra/typeorm/entities/*.js"],
   "cli": {

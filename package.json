@@ -9,7 +9,8 @@
     "test": "jest --runInBand --detectOpenHandles",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "seed:permissions": "ts-node-dev ./dist/shared/infra/typeorm/seed/permissionsAndRoles.js",
-    "start": "node "
+    "start": "node ",
+    "vercel-build": "yarn typeorm migration:run"
   },
   "keywords": [],
   "author": "",

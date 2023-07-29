@@ -10,7 +10,7 @@
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn  src/shared/infra/http/server.ts",
     "test": "jest --runInBand --detectOpenHandles",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
+    "typeorm": "typeorm migration:run",
     "seed:permissions": "ts-node-dev ./dist/shared/infra/typeorm/seed/permissionsAndRoles.js"
   },
   "keywords": [],

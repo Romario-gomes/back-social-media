@@ -8,7 +8,8 @@
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn  src/shared/infra/http/server.ts",
     "test": "jest --runInBand --detectOpenHandles",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "seed:permissions": "ts-node-dev ./dist/shared/infra/typeorm/seed/permissionsAndRoles.js"
+    "seed:permissions": "ts-node-dev ./dist/shared/infra/typeorm/seed/permissionsAndRoles.js",
+    "start": "node "
   },
   "keywords": [],
   "author": "",

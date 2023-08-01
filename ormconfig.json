@@ -1,6 +1,6 @@
 {
   "type": "postgres",
-  "url": "postgresql://postgres:7orzs3JRE3igAqzniD5b@containers-us-west-76.railway.app:5867/railway",
+  "url": "postgresql://postgres:8cgam1EutUU7kGSBY95H@containers-us-west-45.railway.app:5558/railway",
   "migrations": ["src/shared/infra/typeorm/migrations/*.ts"],
   "entities": ["src/modules/**/infra/typeorm/entities/*.ts"],
   "cli": {

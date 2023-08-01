@@ -9,8 +9,8 @@ services:
       - 5432:5432
     environment: 
       - POSTGRES_USER=postgres
-      - POSTGRES_POST=5867
-      - POSTGRES_PASSWORD=7orzs3JRE3igAqzniD5b
+      - POSTGRES_POST=5558
+      - POSTGRES_PASSWORD=8cgam1EutUU7kGSBY95H
       - POSTGRES_DB=railway
     volumes: 
       - pgdata:/data/postgres

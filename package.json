@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
+    "build": "babel src --extensions \".js,.ts\" --out-dir public --copy-files",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn  src/shared/infra/http/server.ts",
     "test": "jest --runInBand --detectOpenHandles",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
-    "seed:permissions": "ts-node-dev ./dist/shared/infra/typeorm/seed/permissionsAndRoles.js"
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "seed:permissions": "ts-node-dev ./dist/shared/infra/typeorm/seed/permissionsAndRoles.js",
+    "start": "node ",
+    "vercel-build": "yarn typeorm migration:run"
   },
   "keywords": [],
   "author": "",

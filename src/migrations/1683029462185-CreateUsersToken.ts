@@ -1,11 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateUsers1647816103643 implements MigrationInterface {
+export class CreateUsersToken1683029462185 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    console.log("teste na migration");
     await queryRunner.createTable(
       new Table({
-        name: "users",
+        name: "users_tokens",
         columns: [
           {
             name: "id",
@@ -13,21 +12,16 @@ export class CreateUsers1647816103643 implements MigrationInterface {
             isPrimary: true,
           },
           {
-            name: "name",
+            name: "refresh_token",
             type: "varchar",
           },
           {
-            name: "password",
-            type: "varchar",
+            name: "user_id",
+            type: "uuid",
           },
           {
-            name: "email",
-            type: "varchar",
-          },
-          {
-            name: "avatar",
-            type: "varchar",
-            isNullable: true,
+            name: "expires_date",
+            type: "timestamp",
           },
           {
             name: "created_at",
@@ -35,11 +29,21 @@ export class CreateUsers1647816103643 implements MigrationInterface {
             default: "now()",
           },
         ],
+        foreignKeys: [
+          {
+            name: "FKUserToken",
+            referencedTableName: "users",
+            referencedColumnNames: ["id"],
+            columnNames: ["user_id"],
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE",
+          },
+        ],
       }),
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("users");
+    await queryRunner.dropTable("users_tokens");
   }
 }

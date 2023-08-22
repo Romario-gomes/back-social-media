@@ -24,6 +24,7 @@ describe("Upload Avatar", () => {
       user_id: userTest.id,
       avatar_file: "file-test-name",
     });
+    console.log(userTest);
     expect(userTest).toHaveProperty("avatar");
     expect(userTest.avatar).not.toBeNull();
     expect(userTest.avatar).toEqual("file-test-name");

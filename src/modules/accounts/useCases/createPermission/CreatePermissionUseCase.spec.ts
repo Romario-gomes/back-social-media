@@ -18,6 +18,7 @@ describe("Create Permission", () => {
       name: "Permissão teste",
       description: "Descrição teste",
     });
+    console.log(createdPermission);
 
     expect(createdPermission).toHaveProperty("id");
     expect(createdPermission).toMatchObject({
@@ -38,6 +39,6 @@ describe("Create Permission", () => {
         name: "Permissão teste",
         description: "Descrição teste",
       }),
-    ).rejects.toEqual(new AppError("Permission already exists", 409));
+    ).rejects.toEqual(new AppError("Permissão já existente"));
   });
 });

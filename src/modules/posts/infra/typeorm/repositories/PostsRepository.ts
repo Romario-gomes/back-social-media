@@ -15,7 +15,6 @@ class PostsRepository implements IPostsRepository {
   async create({
     id,
     user_id,
-    title,
     content,
     midia,
     likes = 0,
@@ -23,7 +22,7 @@ class PostsRepository implements IPostsRepository {
     const post = this.repository.create({
       id,
       user_id,
-      title,
+
       content,
       midia,
       likes,
@@ -35,10 +34,6 @@ class PostsRepository implements IPostsRepository {
   async findById(id: string): Promise<Post> {
     const post = this.repository.findOne(id);
     return post;
-  }
-
-  async findByTitle(title: string): Promise<Post> {
-    return this.repository.findOne({ title });
   }
 
   async delete(id: string): Promise<void> {

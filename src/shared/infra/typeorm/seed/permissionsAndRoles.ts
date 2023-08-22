@@ -1,7 +1,7 @@
 import { createConnection } from "typeorm";
 
-import { Permission } from "@modules/accounts/infra/typeorm/entities/Permission";
-import { Role } from "@modules/accounts/infra/typeorm/entities/Role";
+import { Permission } from "../../../../modules/accounts/infra/typeorm/entities/Permission";
+import { Role } from "../../../../modules/accounts/infra/typeorm/entities/Role";
 
 createConnection()
   .then(async connection => {

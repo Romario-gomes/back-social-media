@@ -1,0 +1,13 @@
+{
+  "type": "postgres",
+  "port": 1318,
+  "host": "localhost",
+  "username": "docker",
+  "password": "social",
+  "database": "social",
+  "migrations": ["./dist/shared/infra/typeorm/migrations/*.ts"],
+  "entities": ["./dist/modules/**/entities/*.ts"],
+  "cli": {
+      "migrationsDir": "./dist/shared/infra/typeorm/migrations"
+  }
+}

@@ -1,6 +1,7 @@
 import "reflect-metadata";
 import "@shared/container";
 import cors from "cors";
+import dotenv from "dotenv";
 import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
@@ -11,8 +12,9 @@ import swaggerFile from "../../../swagger.json";
 import { AppError } from "../../errors/AppError";
 import { router } from "./routes";
 
-const app = express();
+dotenv.config();
 
+const app = express();
 createConnection().then(response => {
   if (response.isConnected) {
     console.log("Conectado no banco!");

@@ -9,9 +9,8 @@ import {
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
-import { Comment } from "@modules/comments/infra/typeorm/entities/Comment";
-
 import { User } from "../../../../accounts/infra/typeorm/entities/User";
+import { Comment } from "../../../../comments/infra/typeorm/entities/Comment";
 
 @Entity("posts")
 class Post {
@@ -24,9 +23,6 @@ class Post {
 
   @Column()
   user_id: string;
-
-  @Column()
-  title: string;
 
   @Column()
   content: string;

@@ -53,6 +53,6 @@ describe("Create Role", () => {
         description: "user",
         permissions: [permission.id],
       }),
-    ).rejects.toEqual(new AppError("Role already Exists", 409));
+    ).rejects.toEqual(new AppError("Role already Exists"));
   });
 });

@@ -12,20 +12,8 @@ class CreatePostUseCase {
     private postsRepository: IPostsRepository,
   ) {}
 
-  async execute({
-    title,
-    content,
-    midia,
-    user_id,
-  }: ICreatePostDTO): Promise<Post> {
-    const postAlreadyExists = await this.postsRepository.findByTitle(title);
-
-    if (postAlreadyExists) {
-      throw new AppError("Post Already exists", 409);
-    }
-
+  async execute({ content, midia, user_id }: ICreatePostDTO): Promise<Post> {
     const post = await this.postsRepository.create({
-      title,
       content,
       midia,
       user_id,

@@ -43,6 +43,9 @@ class PostsRepository implements IPostsRepository {
   async list(): Promise<Post[]> {
     const posts = await this.repository.find({
       relations: ["comments"],
+      order: {
+        created_at: "DESC",
+      },
     });
 
     return posts;

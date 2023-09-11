@@ -36,7 +36,7 @@ class User {
     joinColumns: [{ name: "user_id" }],
     inverseJoinColumns: [{ name: "role_id" }],
   })
-  roles: Role[];
+  role: Role;
 
   constructor() {
     if (!this.id) {
@@ -45,3 +45,4 @@ class User {
   }
 }
 export { User };
+

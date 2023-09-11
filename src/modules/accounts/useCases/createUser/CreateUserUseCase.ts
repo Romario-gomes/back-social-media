@@ -23,12 +23,12 @@ class CreateUserUseCase {
       throw new AppError("User already Exists", 409);
     }
 
-    const existsRole = await this.rolesRepository.findByIds(roles);
+    const existsRole = await this.rolesRepository.findByIds(roles)[0];
     const passwordHash = await hash(password, 8);
     const userCreated = await this.usersRepository.create({
       name,
       email,
-      roles: existsRole,
+      role: existsRole,
       password: passwordHash,
     });
 
@@ -37,3 +37,4 @@ class CreateUserUseCase {
 }
 
 export { CreateUserUseCase };
+

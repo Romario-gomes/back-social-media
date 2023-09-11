@@ -5,9 +5,10 @@ interface ICreateUserDTO {
   password: string;
   username?: string;
   email: string;
-  roles?: Role[];
+  role?: Role;
   id?: string;
   avatar?: string;
 }
 
 export { ICreateUserDTO };
+

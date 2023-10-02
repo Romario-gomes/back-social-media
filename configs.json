@@ -1,6 +1,6 @@
 {
   "type": "postgres",
-  "url": "postgresql://postgres:7orzs3JRE3igAqzniD5b@containers-us-west-76.railway.app:5867/railway",
+  "url": "postgres://adxajabv:wxqvD5l_Uf_pjjwdeUs_fmEB69zKryqs@silly.db.elephantsql.com/adxajabv",
   "migrations": ["src/shared/infra/typeorm/migrations/*.ts"],
   "entities": ["src/modules/**/infra/typeorm/entities/*.ts"],
   "cli": {

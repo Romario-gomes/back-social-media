@@ -79,7 +79,7 @@
                 "example": {
                   "name": "username",
                   "email": "email@test.com",
-                  "passowrd": "pass123!",
+                  "password": "pass123!",
                   "roles": [
                     "123",
                     "456"

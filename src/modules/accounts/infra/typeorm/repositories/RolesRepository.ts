@@ -26,10 +26,10 @@ class RolesRepository implements IRolesRepository {
 
     return role;
   }
-  async findByName(name: string): Promise<Role[]> {
+  async findByName(name: string): Promise<Role> {
     const role = await this.repository.findOne({ name });
 
-    return [role];
+    return role;
   }
   async findById(id: string): Promise<Role> {
     const role = await this.repository.findOne(id);

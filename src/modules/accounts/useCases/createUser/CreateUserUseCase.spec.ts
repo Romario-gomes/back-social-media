@@ -21,7 +21,7 @@ describe("Create User", () => {
     const createdUser = await createUserUseCase.execute({
       name: "John Doe",
       email: "johndoe@email.com",
-      roles: "12345",
+      role: "12345",
       password: "123456789",
     });
     console.log(createdUser);
@@ -37,7 +37,7 @@ describe("Create User", () => {
     await createUserUseCase.execute({
       name: "John Doe",
       email: "johndoe@email.com",
-      roles: "12345",
+      role: "12345",
       password: "123456789",
     });
 
@@ -45,7 +45,7 @@ describe("Create User", () => {
       createUserUseCase.execute({
         name: "John Doe",
         email: "johndoe@email.com",
-        roles: "12345",
+        role: "12345",
         password: "123456789",
       }),
     ).rejects.toEqual(new AppError("User already Exists"));

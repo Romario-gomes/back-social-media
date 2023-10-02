@@ -1,8 +1,8 @@
 {
   "type": "postgres",
   "url": "postgres://adxajabv:wxqvD5l_Uf_pjjwdeUs_fmEB69zKryqs@silly.db.elephantsql.com/adxajabv",
-  "migrations": ["src/shared/infra/typeorm/migrations/*.ts"],
-  "entities": ["src/modules/**/infra/typeorm/entities/*.ts"],
+  "migrations": ["dist/shared/infra/typeorm/migrations/*.ts"],
+  "entities": ["dist/modules/**/infra/typeorm/entities/*.ts"],
   "cli": {
       "migrationsDir": "./dist/shared/infra/typeorm/migrations"
   }

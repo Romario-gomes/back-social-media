@@ -28,7 +28,7 @@ class CreateUserUseCase {
     const userCreated = await this.usersRepository.create({
       name,
       email,
-      role: retrievedRole,
+      roles: retrievedRole,
       password: passwordHash,
     });
 

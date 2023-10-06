@@ -15,7 +15,7 @@ class UsersRepository implements IUsersRepository {
     name,
     email,
     password,
-    roles,
+    role,
     avatar,
     id,
   }: ICreateUserDTO): Promise<User> {
@@ -23,7 +23,7 @@ class UsersRepository implements IUsersRepository {
       name,
       email,
       password,
-      roles,
+      role: [role],
       avatar,
       id,
     });
@@ -39,7 +39,9 @@ class UsersRepository implements IUsersRepository {
   }
 
   async findById(id: string): Promise<User> {
-    const user = await this.repository.findOne(id);
+    const user = await this.repository.findOne(id, {
+      relations: ["roles", "roles.permissions"]
+    });
     return user;
   }
 

@@ -27,8 +27,8 @@ class Role {
   @ManyToMany(() => Permission)
   @JoinTable({
     name: "permissions_roles",
-    joinColumns: [{ name: "role_id" }],
-    inverseJoinColumns: [{ name: "permission_id" }],
+    joinColumns: [{ name: "role_id", referencedColumnName: "id"}],
+    inverseJoinColumns: [{ name: "permission_id", referencedColumnName: "id" }],
   })
   permission: Permission[];
 

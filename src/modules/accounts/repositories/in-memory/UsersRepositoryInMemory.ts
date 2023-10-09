@@ -12,7 +12,7 @@ class UsersRepositoryInMemory implements IUsersRepository {
     email,
     name,
     password,
-    roles,
+    role,
   }: ICreateUserDTO): Promise<User> {
     const user = new User();
 
@@ -20,11 +20,11 @@ class UsersRepositoryInMemory implements IUsersRepository {
       email,
       name,
       password,
-      roles,
+      roles: role,
     });
 
     // Cria instâncias das entidades Role e atribui ao usuário
-    const userRoles = roles.map(role => {
+    const userRoles = role.map(role => {
       const userRole = new Role();
       userRole.id = uuidV4(); // Atribua o ID da Role fornecido
       // Atribua outras propriedades da Role, se necessário

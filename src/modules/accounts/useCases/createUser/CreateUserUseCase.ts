@@ -25,7 +25,7 @@ class CreateUserUseCase {
     }
 
     const retrievedRole = await this.rolesRepository.findByName(role);
-    console.log(retrievedRole)
+    
     const passwordHash = await hash(password, 8);
     const userCreated = await this.usersRepository.create({
       name,
@@ -33,7 +33,7 @@ class CreateUserUseCase {
       role: [retrievedRole],
       password: passwordHash,
     });
-    console.log(userCreated)
+    
     return userCreated;
   }
 }

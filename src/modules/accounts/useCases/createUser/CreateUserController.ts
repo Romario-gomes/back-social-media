@@ -15,7 +15,7 @@ class CreateUserController {
       role,
       password,
     });
-    console.log(user.role)
+    
     return response.status(201).json(user);
   }
 }

@@ -23,7 +23,7 @@ class UsersRepository implements IUsersRepository {
       name,
       email,
       password,
-      role: [role],
+      roles: role,
       avatar,
       id,
     });

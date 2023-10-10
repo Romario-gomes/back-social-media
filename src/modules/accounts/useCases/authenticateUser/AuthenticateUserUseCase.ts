@@ -32,7 +32,7 @@ class AuthenticateUserUseCase {
     private dayjsDateProvider: IDateProvider,
   ) {}
 
-  async execute({ email, password }: IRequest): Promise<IResponse> {
+  async execute({ password, email }: IRequest): Promise<IResponse> {
     const user = await this.usersRepository.findByEmail(email);
     const {
       expires_in_token,

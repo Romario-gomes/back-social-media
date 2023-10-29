@@ -10,17 +10,17 @@ const seedDatabase = async () => {
     console.log("Conexão bem-sucedida!");
 
     await connection.transaction(async transactionalEntityManager => {
-  
-      const permission = new Permission();
-      permission.name = "Permissão 1";
-      permission.description = "Descrição da permissão 1";
-      await transactionalEntityManager.save(permission);
+    
+      const adminPermission = new Permission();
+      adminPermission.name = "AdminPermission";
+      adminPermission.description = "Descrição da permissão para o administrador";
+      await transactionalEntityManager.save(adminPermission);
 
-      const role = new Role();
-      role.name = "Role 1";
-      role.description = "Descrição da role 1";
-      role.permission = [permission];
-      await transactionalEntityManager.save(role);
+      const adminRole = new Role();
+      adminRole.name = "AdminRole";
+      adminRole.description = "Admin Role Description";
+      adminRole.permission = [adminPermission];
+      await transactionalEntityManager.save(adminRole);
     });
 
     console.log("Permissão, Role e vinculação criadas com sucesso!");

@@ -5,13 +5,12 @@ import { CreateRoleUseCase } from "./CreateRoleUseCase";
 
 class CreateRoleController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { name, description, permissions } = request.body;
+    const { name, description } = request.body;
 
     const createRoleUseCase = container.resolve(CreateRoleUseCase);
     await createRoleUseCase.execute({
       name,
-      description,
-      permissions,
+      description
     });
 
     return response.status(201).send();

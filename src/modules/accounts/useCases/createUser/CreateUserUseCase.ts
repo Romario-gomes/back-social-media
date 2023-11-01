@@ -6,7 +6,6 @@ import { IRolesRepository } from "@modules/accounts/repositories/IRolesRepositor
 
 import { AppError } from "../../../../shared/errors/AppError";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
-import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
 
 @injectable()
 class CreateUserUseCase {

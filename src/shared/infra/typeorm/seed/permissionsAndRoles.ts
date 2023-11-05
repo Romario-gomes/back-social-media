@@ -10,20 +10,14 @@ const seedDatabase = async () => {
     console.log("Conexão bem-sucedida!");
 
     await connection.transaction(async transactionalEntityManager => {
-  
-      const permission = new Permission();
-      permission.name = "Permissão 1";
-      permission.description = "Descrição da permissão 1";
-      await transactionalEntityManager.save(permission);
 
       const role = new Role();
       role.name = "Role 1";
       role.description = "Descrição da role 1";
-      role.permission = [permission];
       await transactionalEntityManager.save(role);
     });
 
-    console.log("Permissão, Role e vinculação criadas com sucesso!");
+    console.log("Role e vinculação criadas com sucesso!");
 
     await connection.close();
     console.log("Conexão fechada.");

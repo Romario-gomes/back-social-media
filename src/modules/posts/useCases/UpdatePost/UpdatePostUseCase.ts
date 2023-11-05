@@ -21,7 +21,7 @@ class UpdatePostUseCase {
       throw new AppError("Post Not Found", 404);
     }
 
-    if(user.id !== post.user_id && user.roles[0] !== "admin"){
+    if(user.id !== post.user_id && user.roles.name !== "admin"){
       throw new AppError("not authorized to update the post", 401)
     }
 

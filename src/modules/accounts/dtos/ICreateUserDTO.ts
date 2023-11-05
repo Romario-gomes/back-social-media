@@ -5,7 +5,7 @@ interface ICreateUserDTO {
   password: string;
   username?: string;
   email: string;
-  role?: Role[];
+  role?: Role;
   id?: string;
   avatar?: string;
 }

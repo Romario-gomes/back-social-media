@@ -19,7 +19,7 @@ class DeletePostUseCase {
       throw new AppError("Post not found", 404);
     }
 
-    if(user_id !== post.user_id && user.roles[0] !== "admin"){
+    if(user_id !== post.user_id && user.roles.name !== "admin"){
       throw new AppError("not authorized to delete the post", 401)
     }
 

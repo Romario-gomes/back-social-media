@@ -4,7 +4,6 @@ import {
   Entity,
   JoinTable,
   ManyToMany,
-  PrimaryColumn,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
@@ -37,7 +36,7 @@ class User {
     joinColumns: [{ name: "user_id", referencedColumnName: "id" }],
     inverseJoinColumns: [{ name: "role_id", referencedColumnName: "id" }],
   })
-  roles: Role[];
+  roles: Role;
 
   constructor() {
     if (!this.id) {

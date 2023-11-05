@@ -1,6 +1,7 @@
 import { createConnection } from "typeorm";
-import { Permission } from "@modules/accounts/infra/typeorm/entities/Permission";
 import { Role } from "@modules/accounts/infra/typeorm/entities/Role";
+import { User } from "@modules/accounts/infra/typeorm/entities/User";
+import { v4 as uuidV4 } from "uuid";
 
 console.log("Conectando ao banco de dados...");
 
@@ -13,8 +14,17 @@ const seedDatabase = async () => {
 
       const adminRole = new Role();
       adminRole.name = "admin";
-      adminRole.description = "Admin Role Description";
-      await transactionalEntityManager.save(adminRole);
+      adminRole.description = "Create, Read, Update, Delete fully";
+
+      const adminUser = new User();
+      adminUser.id == uuidV4()
+      adminUser.created_at = new Date(Date.now())
+      adminUser.name = "admin"
+      adminUser.roles = adminRole
+      adminUser.email = "admin@gmail.com"
+      adminUser.password = "123Admin@"
+
+      await Promise.all([transactionalEntityManager.save(adminRole), transactionalEntityManager.save(adminUser)])
     });
 
     console.log("User admin create with succefully");

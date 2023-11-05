@@ -26,9 +26,7 @@ class UpdatePasswordUseCase {
   ) {}
 
   async execute({ token, password }: IRequest): Promise<User> {
-    const { email } = verify(token, auth.secret_password_token) as IPayLoad;
-
-    console.log("resultado: ", email);
+    const { email } = verify(token, auth.secret_token) as IPayLoad;
 
     const user = await this.usersRepository.findByEmail(email);
 

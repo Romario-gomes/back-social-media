@@ -8,11 +8,11 @@ services:
     ports:
       - 5432:5432
     environment: 
-      - POSTGRES_USER=postgres
+      - POSTGRES_USER=adxajabv
       - POSTGRES_POST=5867
-      - POSTGRES_PASSWORD=7orzs3JRE3igAqzniD5b
-      - POSTGRES_DB=railway
-    volumes: 
+      - POSTGRES_PASSWORD=wxqvD5l_Uf_pjjwdeUs_fmEB69zKryqs
+      - POSTGRES_DB=adxajabv
+    volumes:
       - pgdata:/data/postgres
   app:
     build: .

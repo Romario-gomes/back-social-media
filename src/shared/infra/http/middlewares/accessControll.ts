@@ -39,9 +39,9 @@ export function is(permission: string[]): RequestHandler {
     usersRepository = new UsersRepository();
 
     const user = await decoder(request);
-    const { roles } = user;
+    const { role } = user;
 
-    const hasPermission = roles.some(role =>
+    const hasPermission = role.some(role =>
       role.permission.some(p => permission.includes(p.name)),
     );
 

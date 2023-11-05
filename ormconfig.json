@@ -1,8 +1,8 @@
 {
   "type": "postgres",
-  "url": "postgresql://postgres:8cgam1EutUU7kGSBY95H@containers-us-west-45.railway.app:5558/railway",
-  "migrations": ["src/shared/infra/typeorm/migrations/*.ts"],
-  "entities": ["src/modules/**/infra/typeorm/entities/*.ts"],
+  "url": "postgres://adxajabv:wxqvD5l_Uf_pjjwdeUs_fmEB69zKryqs@silly.db.elephantsql.com/adxajabv",
+  "migrations": ["dist/shared/infra/typeorm/migrations/*.js"],
+  "entities": ["dist/modules/**/infra/typeorm/entities/*.js"],
   "cli": {
       "migrationsDir": "./dist/shared/infra/typeorm/migrations"
   }

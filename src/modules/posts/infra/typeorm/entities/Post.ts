@@ -25,6 +25,9 @@ class Post {
   user_id: string;
 
   @Column()
+  title: string;
+
+  @Column()
   content: string;
 
   @Column()

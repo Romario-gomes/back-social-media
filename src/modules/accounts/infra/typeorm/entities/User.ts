@@ -4,7 +4,7 @@ import {
   Entity,
   JoinTable,
   ManyToMany,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
@@ -12,7 +12,7 @@ import { Role } from "./Role";
 
 @Entity("users")
 class User {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column()
@@ -33,10 +33,10 @@ class User {
   @ManyToMany(() => Role)
   @JoinTable({
     name: "users_roles",
-    joinColumns: [{ name: "user_id" }],
-    inverseJoinColumns: [{ name: "role_id" }],
+    joinColumns: [{ name: "user_id", referencedColumnName: "id" }],
+    inverseJoinColumns: [{ name: "role_id", referencedColumnName: "id" }],
   })
-  roles: Role[];
+  roles: Role;
 
   constructor() {
     if (!this.id) {
@@ -45,3 +45,4 @@ class User {
   }
 }
 export { User };
+

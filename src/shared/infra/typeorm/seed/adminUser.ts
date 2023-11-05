@@ -7,7 +7,7 @@ console.log("Conectando ao banco de dados...");
 const seedDatabase = async () => {
   try {
     const connection = await createConnection();
-    console.log("Conexão bem-sucedida!");
+    console.log("Connection ok");
 
     await connection.transaction(async transactionalEntityManager => {
     
@@ -23,10 +23,10 @@ const seedDatabase = async () => {
       await transactionalEntityManager.save(adminRole);
     });
 
-    console.log("Permissão, Role e vinculação criadas com sucesso!");
+    console.log("User admin create with succefully");
 
     await connection.close();
-    console.log("Conexão fechada.");
+    console.log("Close connection");
   } catch (error) {
     console.error("Erro ao conectar ao banco de dados:", error);
   }

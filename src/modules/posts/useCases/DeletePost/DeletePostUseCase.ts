@@ -9,11 +9,15 @@ class DeletePostUseCase {
     @inject("PostsRepository")
     private postsRepository: IPostsRepository,
   ) {}
-  async execute(id: string): Promise<void> {
+  async execute(id: string, user_id: string): Promise<void> {
     const post = await this.postsRepository.findById(id);
 
     if (!post) {
       throw new AppError("Post not found", 404);
+    }
+
+    if(user_id !== post.user_id){
+      throw new AppError("not authorized to delete the post", 401)
     }
 
     await this.postsRepository.delete(id);

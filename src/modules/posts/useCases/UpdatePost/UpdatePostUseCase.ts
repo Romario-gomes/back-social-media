@@ -13,9 +13,13 @@ class UpdatePostUseCase {
   ) {}
   async execute(data: IUpdatePostDTO): Promise<Post> {
     const post = await this.postRepository.findById(data.id);
-
+    
     if (!post) {
       throw new AppError("Post Not Found", 404);
+    }
+    
+    if(data.user_id !== post.user_id){
+      throw new AppError("not authorized to update the post", 401)
     }
 
     Object.assign(post, data);

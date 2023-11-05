@@ -6,12 +6,13 @@ import { UpdatePostUseCase } from "./UpdatePostUseCase";
 class UpdatePostController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
-    const { title, content, midia } = request.body;
+    const { title, content, midia, user_id } = request.body;
 
     const updatePostUseCase = container.resolve(UpdatePostUseCase);
 
     const postUpdated = await updatePostUseCase.execute({
       id,
+      user_id,
       title,
       content,
       midia,

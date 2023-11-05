@@ -12,8 +12,8 @@ const seedDatabase = async () => {
     await connection.transaction(async transactionalEntityManager => {
 
       const role = new Role();
-      role.name = "Role 1";
-      role.description = "Descrição da role 1";
+      role.name = "user";
+      role.description = "user User can create, update and delete their comments and posts, in addition to being able to read comments and posts from others";
       await transactionalEntityManager.save(role);
     });
 

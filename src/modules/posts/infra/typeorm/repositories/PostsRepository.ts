@@ -17,12 +17,13 @@ class PostsRepository implements IPostsRepository {
     user_id,
     content,
     midia,
+    title,
     likes = 0,
   }: ICreatePostDTO): Promise<Post> {
     const post = this.repository.create({
       id,
       user_id,
-
+      title,
       content,
       midia,
       likes,

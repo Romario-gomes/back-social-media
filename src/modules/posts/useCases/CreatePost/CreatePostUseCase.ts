@@ -12,11 +12,13 @@ class CreatePostUseCase {
     private postsRepository: IPostsRepository,
   ) {}
 
-  async execute({ content, midia, user_id }: ICreatePostDTO): Promise<Post> {
+  async execute({ content, midia, user_id, title, likes }: ICreatePostDTO): Promise<Post> {
     const post = await this.postsRepository.create({
       content,
       midia,
       user_id,
+      title,
+      likes
     });
 
     return post;

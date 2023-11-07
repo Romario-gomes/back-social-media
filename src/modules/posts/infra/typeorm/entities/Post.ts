@@ -17,10 +17,6 @@ class Post {
   @PrimaryColumn()
   id: string;
 
-  @ManyToOne(() => User)
-  @JoinColumn({ name: "user_id" })
-  user: User;
-
   @Column()
   user_id: string;
 
@@ -36,11 +32,15 @@ class Post {
   @Column()
   likes: number;
 
-  @OneToMany(() => Comment, comment => comment.post)
-  comments: Comment[];
-
   @CreateDateColumn()
   created_at: Date;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: "user_id" })
+  user: User;
+
+  @OneToMany(() => Comment, comment => comment.post)
+  comments: Comment[];
 
   constructor() {
     if (!this.id) {

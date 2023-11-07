@@ -11,7 +11,7 @@ class ListPostsUseCase {
   ) {}
   async execute(): Promise<Post[]> {
     const posts = await this.postsRepository.list();
-
+    
     return posts;
   }
 }

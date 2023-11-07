@@ -46,8 +46,8 @@ class SendEmailUpdatePasswordUseCase {
               Clique no link para redefinição de senha <a href="${url}/?token=${token}">Clique aqui</a>
               `,
       subject: "Recuperação de senha",
-      from: "Romário Alves <romariogn10@gmaill.com>",
-      to: ["romariogn10@gmail.com"],
+      from: process.env.GMAIL,
+      to: email,
     });
   }
 }

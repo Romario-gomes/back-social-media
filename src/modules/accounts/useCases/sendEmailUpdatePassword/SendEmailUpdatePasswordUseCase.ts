@@ -2,7 +2,7 @@ import { hash } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { injectable, inject } from "tsyringe";
 
-import auth from "@config/auth";
+import auth from "../../../../config/auth";
 import { User } from "@modules/accounts/infra/typeorm/entities/User";
 import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 import { AppError } from "@shared/errors/AppError";
@@ -27,16 +27,16 @@ class SendEmailUpdatePasswordUseCase {
       throw new AppError("User not exists", 404);
     }
 
-    const { secret_password_token } = auth;
+    const { secret_token, expires_in_token } = auth;
 
     const token = sign(
       {
         email,
       },
-      secret_password_token,
+      secret_token,
       {
         subject: user.id,
-        expiresIn: "30m",
+        expiresIn: expires_in_token,
       },
     );
 

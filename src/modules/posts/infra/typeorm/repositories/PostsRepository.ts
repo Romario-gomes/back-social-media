@@ -29,7 +29,7 @@ class PostsRepository implements IPostsRepository {
       likes,
     });
     await this.repository.save(post);
-    console.log("Post: ", post);
+
     return post;
   }
   async findById(id: string): Promise<Post> {
@@ -41,7 +41,7 @@ class PostsRepository implements IPostsRepository {
     this.repository.delete(id);
   }
 
-  async list(): Promise<Post[]> {
+  async list(): Promise<Post[] | any> {
     const posts = await this.repository.find({
       relations: ["comments"],
       order: {

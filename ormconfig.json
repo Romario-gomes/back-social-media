@@ -1,6 +1,6 @@
 {
   "type": "postgres",
-  "url": "postgres://adxajabv:wxqvD5l_Uf_pjjwdeUs_fmEB69zKryqs@silly.db.elephantsql.com/adxajabv",
+  "url": "postgres://eouuayll:Lxcii6NJLdJXJYV-8iVE8wj-mjQCUf70@isabelle.db.elephantsql.com/eouuayll",
   "migrations": ["dist/shared/infra/typeorm/migrations/*.js"],
   "entities": ["dist/modules/**/infra/typeorm/entities/*.js"],
   "cli": {

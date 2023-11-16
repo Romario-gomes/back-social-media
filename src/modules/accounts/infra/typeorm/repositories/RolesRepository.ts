@@ -14,12 +14,10 @@ class RolesRepository implements IRolesRepository {
   async create({
     name,
     description,
-    permissions,
   }: ICreateRoleDTO): Promise<Role> {
     const role = this.repository.create({
       name,
       description,
-      permission: permissions,
     });
 
     await this.repository.save(role);

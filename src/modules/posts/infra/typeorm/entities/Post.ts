@@ -2,10 +2,10 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
+  JoinColumn, 
   ManyToOne,
   OneToMany,
-  PrimaryColumn,
+  PrimaryColumn
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
@@ -16,7 +16,7 @@ import { Comment } from "../../../../comments/infra/typeorm/entities/Comment";
 class Post {
   @PrimaryColumn()
   id: string;
-
+  
   @Column()
   user_id: string;
 
@@ -26,17 +26,17 @@ class Post {
   @Column()
   content: string;
 
-  @Column()
+  @Column({ nullable: true })
   midia: string;
 
-  @Column()
+  @Column({ default: 0})
   likes: number;
 
   @CreateDateColumn()
   created_at: Date;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: "user_id" })
+  @JoinColumn({ name: "user_id" }) 
   user: User;
 
   @OneToMany(() => Comment, comment => comment.post)

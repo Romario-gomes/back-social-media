@@ -2,6 +2,7 @@ import { createConnection } from "typeorm";
 import { Role } from "@modules/accounts/infra/typeorm/entities/Role";
 import { User } from "@modules/accounts/infra/typeorm/entities/User";
 import { v4 as uuidV4 } from "uuid";
+import {hash} from "bcryptjs"
 
 console.log("Conectando ao banco de dados...");
 
@@ -17,12 +18,13 @@ const seedDatabase = async () => {
       adminRole.description = "Create, Read, Update, Delete fully";
 
       const adminUser = new User();
-      adminUser.id == uuidV4()
+      adminUser.id = uuidV4()
       adminUser.created_at = new Date(Date.now())
       adminUser.name = "admin"
       adminUser.roles = adminRole
-      adminUser.email = "admin@gmail.com"
-      adminUser.password = "123Admin@"
+      adminUser.email = "admin123@gmail.com"
+      const passwordHash = await hash("123Admin@", 8);
+      adminUser.password = passwordHash
 
       await Promise.all([transactionalEntityManager.save(adminRole), transactionalEntityManager.save(adminUser)])
     });
